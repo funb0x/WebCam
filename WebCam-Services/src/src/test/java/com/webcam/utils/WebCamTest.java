@@ -26,6 +26,7 @@ public class WebCamTest {
         VideoPanel panel = new VideoPanel();
         frame.add(panel);
 
+        //TODO refactor this
         for(;; panel.updateImage(webcam.getImage())) {
             try {
                 Thread.sleep(20);
