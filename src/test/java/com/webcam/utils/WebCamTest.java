@@ -1,6 +1,7 @@
 package com.webcam.utils;
 
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
 import org.junit.Test;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class WebCamTest {
 
     @Test
     public void showVideoTest() {
-        Dimension dimension = new Dimension(640, 480);
+        Dimension dimension = WebcamResolution.VGA.getSize();
         Webcam webcam = Webcam.getDefault();
         webcam.setViewSize(dimension);
         webcam.open();
