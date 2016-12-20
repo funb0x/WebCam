@@ -1,5 +1,4 @@
 package com.webcam.srv;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,10 +20,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebSocket
-public class WebCamWebSocketHandler implements ImageListener {
+public class WebSocketHandler implements ImageListener {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
-
+    private final ObjectMapper MAPPER = new ObjectMapper();
+    private final CarController carController = CarController.carController;
     private Session session;
 
     private void setup(Session session) {
@@ -61,7 +60,7 @@ public class WebCamWebSocketHandler implements ImageListener {
 
     @OnWebSocketMessage
     public void onMessage(String message) {
-        System.out.println("WebSocket message, text = " + message);
+        carController.onControl(message);
     }
 
     @Override
