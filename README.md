@@ -1,1 +1,1 @@
-# WebCam
+This is simple IP camera
